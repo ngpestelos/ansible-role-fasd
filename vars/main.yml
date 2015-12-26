@@ -1,3 +1,4 @@
 ---
+bash_profile: /home/deploy/.bash_profile
 fasd_url: https://github.com/clvv/fasd/tarball/1.0.1
 fasd_path: /home/deploy/clvv-fasd-4822024

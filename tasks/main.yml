@@ -11,10 +11,15 @@
   shell: "make install chdir={{ fasd_path }}"
   sudo: True
 
+- name: Ensure bash_profile exists
+  file:
+    path: "{{ bash_profile }}"
+    state: file
+
 - name: Add to bash_profile
   lineinfile:
     line: 'eval "$(fasd --init auto)"'
-    dest: /home/deploy/.bash_profile
+    dest: "{{ bash_profile }}"
     state: present
 
 - name: Delete fasd_path
