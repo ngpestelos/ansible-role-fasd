@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: Nestor G Pestelos Jr
+  description: fasd
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+  - name: Ubuntu
+    versions:
+      - trusty
+dependencies:
+  - ngpestelos.common

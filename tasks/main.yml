@@ -1,0 +1,28 @@
+---
+- name: Download
+  shell: "wget -O fasd.tar.gz {{ fasd_url }} chdir=/home/deploy"
+
+- name: Extract
+  shell: "tar xvf fasd.tar.gz"
+
+- name: Install
+  environment:
+    HOME: "/home/deploy"
+  shell: "make install chdir={{ fasd_path }}"
+  sudo: True
+
+- name: Add to bash_profile
+  lineinfile:
+    line: 'eval "$(fasd --init auto)"'
+    dest: /home/deploy/.bash_profile
+    state: present
+
+- name: Delete fasd_path
+  file:
+    path: "{{ fasd_path }}"
+    state: absent
+
+- name: Delete tarfile
+  file:
+    path: "fasd.tar.gz"
+    state: absent
