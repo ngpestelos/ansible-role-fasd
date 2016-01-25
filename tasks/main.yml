@@ -1,9 +1,13 @@
 ---
 - name: Download
-  shell: "wget -O fasd.tar.gz {{ fasd_url }} chdir=/home/deploy"
+  get_url:
+    url: "{{ fasd_url }}"
+    dest: "{{ fasd_tar_gz }}"
 
 - name: Extract
-  shell: "tar xvf fasd.tar.gz chdir=/home/deploy"
+  unarchive:
+    src: "{{ fasd_tar_gz }}"
+    dest: "/home/deploy"
 
 - name: Install
   environment:
@@ -29,5 +33,5 @@
 
 - name: Delete tarfile
   file:
-    path: "/home/deploy/fasd.tar.gz"
+    path: "{{ fasd_tar_gz }}"
     state: absent
