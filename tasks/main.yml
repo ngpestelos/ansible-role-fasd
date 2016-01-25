@@ -25,6 +25,7 @@
   lineinfile:
     line: 'eval "$(fasd --init auto)"'
     dest: "{{ bash_profile }}"
+    regexp: EOF
     state: present
 
 - name: Delete fasd_path
