@@ -13,7 +13,8 @@
   environment:
     HOME: "/home/deploy"
   shell: "make install chdir={{ fasd_path }}"
-  sudo: True
+  become: True
+  become_user: root
 
 - name: Ensure bash_profile exists
   file:
