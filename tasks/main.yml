@@ -3,9 +3,11 @@
   get_url:
     url: "{{ fasd_url }}"
     dest: "{{ fasd_tar_gz }}"
+  tags: fasd
 
 - name: Extract
   shell: "tar xvzf {{ fasd_tar_gz }} chdir=/tmp"
+  tags: fasd
 
 - name: Install
   environment:
@@ -13,13 +15,16 @@
   shell: "make install chdir={{ fasd_path }}"
   become: True
   become_user: root
+  tags: fasd
 
 - name: Delete fasd_path
   file:
     path: "{{ fasd_path }}"
     state: absent
+  tags: fasd
 
 - name: Delete tarfile
   file:
     path: "{{ fasd_tar_gz }}"
     state: absent
+  tags: fasd
