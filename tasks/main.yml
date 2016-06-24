@@ -5,28 +5,14 @@
     dest: "{{ fasd_tar_gz }}"
 
 - name: Extract
-  unarchive:
-    src: "{{ fasd_tar_gz }}"
-    dest: "/home/deploy"
+  shell: "tar xvzf {{ fasd_tar_gz }} chdir=/tmp"
 
 - name: Install
   environment:
-    HOME: "/home/deploy"
+    HOME: "{{ fasd_home }}"
   shell: "make install chdir={{ fasd_path }}"
   become: True
   become_user: root
-
-- name: Ensure bash_profile exists
-  file:
-    path: "{{ bash_profile }}"
-    state: file
-
-- name: Add to bash_profile
-  lineinfile:
-    line: 'eval "$(fasd --init auto)"'
-    dest: "{{ bash_profile }}"
-    regexp: EOF
-    state: present
 
 - name: Delete fasd_path
   file:

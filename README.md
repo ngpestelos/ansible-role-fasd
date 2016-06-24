@@ -1,27 +1,18 @@
-Ansible Role: fasd
-==================
+# Ansible Role: fasd
 
 fasd
 
-Requirements
-------------
+# Requirements
 
 n/a
 
-Role Variables
---------------
+# Role Variables
 
 * `fasd_path` (local install path)
+* `fasd_user`
 * `fasd_url` (URL to fasd source)
 
-
-Dependencies
-------------
-
-* ngpestelos.common
-
-Example Playbook
-----------------
+# Example Playbook
 
 ```
 - hosts: all
@@ -29,12 +20,10 @@ Example Playbook
     - ngpestelos.fasd
 ```
 
-License
--------
+# License
 
 MIT
 
-Author Information
-------------------
+# Author Information
 
 Nestor G Pestelos Jr (@ngpestelos)
