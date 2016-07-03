@@ -28,3 +28,9 @@
     path: "{{ fasd_tar_gz }}"
     state: absent
   tags: fasd
+
+- name: Copy fasd.sh
+  copy:
+    src: fasd.sh
+    dest: /etc/profile.d/fasd.sh
+  tags: fasd
