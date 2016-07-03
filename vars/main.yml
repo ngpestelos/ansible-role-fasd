@@ -3,4 +3,3 @@ fasd_home: "/home/{{ fasd_user }}"
 fasd_url: https://github.com/clvv/fasd/tarball/1.0.1
 fasd_path: "/tmp/clvv-fasd-4822024"
 fasd_tar_gz: /tmp/fasd.tar.gz
-fasd_user: deploy
